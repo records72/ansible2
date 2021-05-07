@@ -1,0 +1,6 @@
+---
+# vars file for nginx2
+kibana_host : 116.203.249.21
+elastic_host: 116.203.249.21
+elastic_user: transfer
+elastic_pass: transfer

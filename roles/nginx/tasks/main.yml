@@ -1,0 +1,30 @@
+---
+
+# Installing nginx
+
+
+
+- name: Install nginx
+  apt: name=nginx
+
+- name: copy conf kibana
+  copy: src=kibana.conf dest={{ destin_folder }}/kibana.conf mode=0644
+
+- name: copy conf elastic
+  copy: src=elasticsearch.conf dest={{ destin_folder }}/elasticsearch.conf mode=0644
+
+- name: create simlink
+  file: src=/etc/nginx/sites-available/kibana.conf dest=/etc/nginx/sites-enabled/kibana.conf state=link
+
+- name: create simlink
+  file: src=/etc/nginx/sites-available/elasticsearch.conf dest=/etc/nginx/sites-enabled/elasticsearch.conf state=link
+
+- name: copy cert
+  copy: src=ssl dest=/etc/nginx
+
+- name: copy pass
+  copy: src=pass/ dest=/etc/nginx
+
+- name: start service nginx
+  service: name=nginx state=started enabled=yes
+

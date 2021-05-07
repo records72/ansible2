@@ -1,0 +1,8 @@
+- hosts: elastic
+  gather_facts: false
+  become: yes
+
+  tasks:
+
+  - name: nginx restart
+    service: name=nginx state=restarted

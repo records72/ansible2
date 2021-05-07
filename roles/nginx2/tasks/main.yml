@@ -1,0 +1,14 @@
+---
+# tasks file for nginx2
+
+- name: install nginx
+  apt: name=nginx state=latest update_cache=yes
+
+- name: copy conf nginx
+  copy: src=nginx.conf dest=/etc/nginx/
+
+- name: copy html
+  copy: src=html/ dest=/var/www/html
+
+- name: start service nginx
+  service: name=nginx state=restarted enabled=yes

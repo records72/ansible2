@@ -1,0 +1,3 @@
+---
+destin_folder: /etc/nginx/sites-available
+role_path: /opt/ansible/roles/nginx/files/

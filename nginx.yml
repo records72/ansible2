@@ -1,0 +1,9 @@
+---
+#
+# Playbook to install the nginx + Beats
+#
+- hosts: nginx
+  become: yes
+  roles:
+  - { role: nginx2 }
+  - { role: filebeat }
